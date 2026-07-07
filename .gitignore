@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.Python
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Data (large/raw datasets shouldn't live in git)
+data/raw/
+data/*.csv
+*.csv
+!data/sample/*.csv
+
+# Trained models / artifacts
+*.pkl
+*.joblib
+models/*.json
+models/*.ubj
+
+# Docker
+docker-compose.override.yml
+
+# Database
+*.sqlite3
+pgdata/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
