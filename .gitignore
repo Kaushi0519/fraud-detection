@@ -53,5 +53,8 @@ pgdata/
 .idea/
 .DS_Store
 
+# Personal notes (not part of the public portfolio artifact)
+DECISIONS.md
+
 # Logs
 *.log
