@@ -1,3 +1,16 @@
 pandas
 numpy
 matplotlib
+scikit-learn
+imbalanced-learn
+xgboost
+shap
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy
+psycopg2-binary
+redis
+pytest
+httpx
+requests
