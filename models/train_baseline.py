@@ -26,24 +26,9 @@ from sklearn.metrics import (
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from features.engineering import FEATURE_COLUMNS, fit_feature_params, load_raw, transform
+from models.data import prepare_data
 
-TRAIN_PATH = "data/raw/fraudTrain.csv"
-TEST_PATH = "data/raw/fraudTest.csv"
 METRICS_OUT_PATH = "models/baseline_metrics.json"
-
-
-def prepare_data():
-    train_df = load_raw(TRAIN_PATH)
-    test_df = load_raw(TEST_PATH)
-
-    params = fit_feature_params(train_df)
-    train_df = transform(train_df, params)
-    test_df = transform(test_df, params)
-
-    X_train, y_train = train_df[FEATURE_COLUMNS], train_df["is_fraud"]
-    X_test, y_test = test_df[FEATURE_COLUMNS], test_df["is_fraud"]
-    return X_train, y_train, X_test, y_test
 
 
 def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> Pipeline:
