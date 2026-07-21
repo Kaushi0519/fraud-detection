@@ -36,10 +36,16 @@ data/*.csv
 !data/sample/*.csv
 
 # Trained models / artifacts
+# Most model/checkpoint files are ignored, but the metrics reports and the
+# final production model are committed so the API can run without a full
+# retrain and so results are visible without running the training scripts.
 *.pkl
 *.joblib
 models/*.json
 models/*.ubj
+!models/baseline_metrics.json
+!models/production_metrics.json
+!models/xgboost_fraud_model.json
 
 # Docker
 docker-compose.override.yml
