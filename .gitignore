@@ -46,6 +46,7 @@ models/*.ubj
 !models/baseline_metrics.json
 !models/production_metrics.json
 !models/xgboost_fraud_model.json
+!models/serving_artifacts.json
 
 # Docker
 docker-compose.override.yml
