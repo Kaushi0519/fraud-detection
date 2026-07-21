@@ -21,13 +21,19 @@ OUT_PATH = "models/serving_artifacts.json"
 
 
 def build_user_snapshot(train_df) -> dict:
+    # count is kept alongside avg_amt so the API can do a proper
+    # count-weighted blend of this training-time baseline with live
+    # Postgres history, instead of one abruptly replacing the other the
+    # moment a user's first live transaction arrives.
     latest = train_df.sort_values("trans_date_trans_time").groupby("cc_num").agg(
         avg_amt=("amt", "mean"),
+        count=("amt", "size"),
         last_trans_time=("trans_date_trans_time", "max"),
     )
     return {
         str(cc_num): {
             "avg_amt": row["avg_amt"],
+            "count": int(row["count"]),
             "last_trans_time": row["last_trans_time"].isoformat(),
         }
         for cc_num, row in latest.iterrows()
