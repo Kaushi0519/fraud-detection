@@ -1,0 +1,10 @@
+.venv/
+.git/
+data/raw/
+notebooks/
+tests/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+DECISIONS.md
